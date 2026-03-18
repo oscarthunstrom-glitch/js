@@ -1,0 +1,27 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { height: 100vh; background: #0a1428; font-family: 'Arial', sans-serif; overflow: hidden; user-select: none; }  /* Så man inte ska kunna scrolla */
+.game-container { position: relative; width: 100vw; height: 100vh; }
+#canvas { width: 100vw; height: 100vh; display: block; background: #e0f6ff; }
+
+#ui-container { position: absolute; top: 20px; left: 20px; z-index: 10; pointer-events: none; }   
+.ui-element { font-size: 24px; color: #333; font-weight: bold; margin-bottom: 5px; text-shadow: 1px 1px white; }
+
+.screen { 
+    position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; 
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
+    display: flex; flex-direction: column; justify-content: center;   /*Centrerar alla knapparna*/
+    align-items: center; z-index: 100; color: white; text-align: center; 
+}
+.hidden { display: none !important; }
+
+button { 
+    padding: 15px 35px; font-size: 1.2em; margin: 10px; cursor: pointer; 
+    background: #00d4ff; border: none; border-radius: 10px; font-weight: bold; transition: 0.2s;
+}
+button:hover { transform: scale(1.05); background: #00ffff; box-shadow: 0 0 15px #00ffff; }
+.back-btn { background: #ff6b6b; }
+.back-btn:hover { background: #ff8787; box-shadow: 0 0 15px #ff8787; }
+
+.upgrades-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px; }
+.upgrade-item { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; border: 2px solid #00d4ff; width: 220px; }
+.stats { font-size: 1.5em; margin: 20px; background: rgba(0,0,0,0.3); padding: 10px 25px; border-radius: 30px; }

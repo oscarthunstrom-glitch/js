@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pingvin Pulka</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <canvas id="canvas"></canvas>
+    
+    <div id="ui-container" class="hidden"> <!-- Ett lager som visar coinsen och levelen under spelets gång --> 
+      <div class="ui-element">LEVEL <span id="level-num">1</span></div>
+      <div class="ui-element">COINS: <span id="coins-count">0</span></div>
+    </div>
+
+    <div id="menu-screen" class="screen">   <!-- 3 olika menyer: Huvudmeny, Uppgraderingar, game over -->
+      <h1>🐧 PINGVIN PULKA 🐧</h1>
+      <button onclick="startGame()">STARTA SPEL</button>
+      <button onclick="showUpgrades()">UPPGRADERINGAR</button>
+    </div>
+
+    <div id="upgrades-screen" class="screen hidden">    <!-- Menyerna visas en åt gången -->
+      <h1>UPPGRADERINGAR</h1>
+      <div class="upgrades-container">
+        <div class="upgrade-item">
+          <h3>⚡ HASTIGHET</h3>
+          <p>Nivå: <span id="speed-level">0</span></p>
+          <p>Kostnad: <span id="speed-cost">50</span></p>
+          <button onclick="buyUpgrade('speed')">KÖP</button>
+        </div>
+        <div class="upgrade-item">  <!--Uppgraderingar-->
+          <h3>❄️ GLID </h3>                           
+          <p>Nivå: <span id="glide-level">0</span></p>
+          <p>Kostnad: <span id="glide-cost">50</span></p>
+          <button onclick="buyUpgrade('glide')">KÖP</button>
+        </div>
+        <div class="upgrade-item">
+          <h3>💰 COIN BONUS</h3>
+          <p>Nivå: <span id="income-level">0</span></p>
+          <p>Kostnad: <span id="income-cost">50</span></p>
+          <button onclick="buyUpgrade('income')">KÖP</button>
+        </div>
+      </div>
+      <div class="stats">TOTALA COINS: <span id="total-coins">0</span></div>
+      <button onclick="backToMenu()" class="back-btn">TILLBAKA</button>
+    </div>
+
+    <div id="game-over-screen" class="screen hidden">
+      <h1 id="game-over-title">LEVEL KLAR!</h1>
+      <p>COINS DENNA NIVÅ: <span id="level-coins">0</span></p>
+      <div id="action-buttons">
+        <button id="next-lvl-btn" onclick="nextLevel()">NÄSTA LEVEL</button>
+        <button onclick="backToMenu()" class="back-btn">MENY</button>
+      </div>
+    </div>
+  </div>
+  <script src="Pingvin.js"></script>
+</body>
+</html>
